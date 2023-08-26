@@ -1,2 +1,2 @@
 # clone-tabnews
-Projeto clone do tabnews.com.br desenvolvido para o curso.dev
+Projeto clone do https://tabnews.com.br desenvolvido para o https://curso.dev
