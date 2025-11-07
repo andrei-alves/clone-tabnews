@@ -9,7 +9,7 @@ import {
   ValidationError,
   NotFoundError,
   UnauthorizedError,
-  ForbidenError,
+  ForbiddenError,
 } from "infra/errors";
 
 function onNoMatchHandler(request, response) {
@@ -21,7 +21,7 @@ function onErrorHandler(error, request, response) {
   if (
     error instanceof ValidationError ||
     error instanceof NotFoundError ||
-    error instanceof ForbidenError
+    error instanceof ForbiddenError
   ) {
     return response.status(error.statusCode).json(error);
   }
@@ -102,7 +102,7 @@ function canRequest(feature) {
       return next();
     }
 
-    throw new ForbidenError({
+    throw new ForbiddenError({
       message: "Você não possui permissão para executar esta ação.",
       action: `Verifique se o seu usuário possui a feature "${feature}".`,
     });
