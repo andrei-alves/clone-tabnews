@@ -7,7 +7,7 @@ function getOrigin() {
     return `https://${process.env.VERCEL_URL}`;
   }
 
-  return "https://repertorio.com.br";
+  return "https://clone-tabnews.andreialves.com.br";
 }
 
 const webserver = {

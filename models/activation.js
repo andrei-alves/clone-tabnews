@@ -132,15 +132,15 @@ async function create(userId) {
 
 async function sendEmailToUser(user, activationToken) {
   await email.send({
-    from: "Repertório <contato@repertorio.com.br>",
+    from: "FinTab <contato@clone-tabnews.andreialves.com.br>",
     to: user.email,
-    subject: "Ative seu cadastro no Repertório",
-    text: `${user.username}, clique no link abaixo para ativar seu cadastro no Repertório:
+    subject: "Ative seu cadastro no FinTab",
+    text: `${user.username}, clique no link abaixo para ativar seu cadastro no FinTab:
     
 ${webserver.origin}/cadastro/ativar/${activationToken.id}
 
 Atenciosamente,
-Equipe do Repertório`,
+Equipe do FinTab`,
   });
 }
 
