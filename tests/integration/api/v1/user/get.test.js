@@ -89,6 +89,7 @@ describe("GET /api/v1/user", () => {
         maxAge: session.EXPIRATION_IN_MILLISECONDS / 1000,
         path: "/",
         httpOnly: true,
+        sameSite: "Lax",
       });
     });
 
@@ -131,7 +132,6 @@ describe("GET /api/v1/user", () => {
       expect(Date.parse(responseBody.updated_at)).not.toBeNaN();
 
       // Session renewal assertions
-
       const renewedSessionObject = await session.findOneValidByToken(
         sessionObject.token,
       );
@@ -145,21 +145,17 @@ describe("GET /api/v1/user", () => {
       ).toEqual(true);
 
       // Set‑Cookie assertions
-
       const parsedSetCookie = setCookieParser(response, {
         map: true,
       });
 
       expect(parsedSetCookie.session_id).toEqual({
         name: "session_id",
-
         value: sessionObject.token,
-
         maxAge: session.EXPIRATION_IN_MILLISECONDS / 1000,
-
         path: "/",
-
         httpOnly: true,
+        sameSite: "Lax",
       });
     });
 
