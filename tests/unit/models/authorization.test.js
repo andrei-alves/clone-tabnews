@@ -46,7 +46,7 @@ describe("models/authorization.js", () => {
       }).toThrow(InternalServerError);
     });
 
-    test("without `user.features`", () => {
+    test("without 'user.features'", () => {
       const createdUser = {
         username: "UserWithoutFeatures",
       };
